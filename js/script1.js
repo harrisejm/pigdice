@@ -18,6 +18,9 @@ var Players = function(name, roll) {
 }
  $(document).ready(function(){
 ///
+
+
+
 ///
 $(".start").click(function(event){
 
@@ -33,13 +36,26 @@ document.getElementById("score2").innerHTML = 0;
 });
 
 //player 1
+var aiTurn = 0;
 
-  $(".rollButton").click(function(event){
-  event.preventDefault();
+var test = setInterval(aiPlayer, 1000);
+
+
+function aiPlayer() {
 
 roll = Math.floor(Math.random() * 6 +1)
 player1 = new Players("Eddie", roll);
 player1.round()
+
+if (aiTurn < 2) {
+   aiTurn += 1;
+} else {
+  $(".picOne").show();
+  document.getElementById("roll").innerHTML = 0;
+  clearInterval(test);
+  aiBank()
+  aiTurn = 0;
+}
 
 $(".picOne").hide();
 $(".picTwo").hide();
@@ -52,13 +68,15 @@ document.getElementById("dice").innerHTML = rollTotal;
 document.getElementById("roll").innerHTML = roll;
 
 if (roll === 1) {
-  rollTotal = 0;
   $(".picOne").show();
+  clearInterval(test);
+  rollTotal = 0;
+
   $(".showPlayerTwo").show();
   $(".showPlayerOne").hide();
    document.getElementById("dice").innerHTML = 0;
-   document.getElementById("roll").innerHTML = 0;
-  alert("ZERO!!!")
+
+  //alert("ZERO!!!")
 }
 else if (roll === 2){
   $(".picTwo").show();
@@ -76,8 +94,13 @@ else if (roll === 6) {
   $(".picSix").show();
 }
 
-  });
-$(".playerOneBank").click(function(event){
+
+}
+
+
+
+
+function aiBank() {
 
 score = score + rollTotal;
 rollTotal = 0;
@@ -100,9 +123,12 @@ if (score >= 100) {
   $(".showPlayerOne").hide();
   $(".start").show();
 }
-});
+}
+
 
 //player 2
+
+
 
 $(".rollButton2").click(function(event){
 event.preventDefault();
@@ -122,6 +148,7 @@ $(".picSix").hide();
 
 if (roll === 1) {
 rollTotal2 = 0;
+test = setInterval(aiPlayer, 1000);
 $(".picOne").show();
 $(".showPlayerOne").show();
 $(".showPlayerTwo").hide();
@@ -149,7 +176,7 @@ else if (roll === 6){
 $(".playerTwoBank").click(function(event){
 score2 = score2 + rollTotal2;
 rollTotal2 = 0;
-
+test = setInterval(aiPlayer, 1000);
 $(".picOne").hide();
 $(".picTwo").hide();
 $(".picThree").hide();
