@@ -9,19 +9,22 @@
   </head>
   <body>
     <div class="container">
+<div class="jumbotron">
 
 
     <h1>Lets play Pig Dice!</h1>
     <div class="buttonHide">
     <button type="button" name="start" class="start">Start!</button>
   </div>
+
+  </div>
     <div class="row">
       <div class="col-md-6">
         <div class="well">
-          <h3>Player 1:</h3>
+          <h3 style="color: red">Player 1:</h3>
           <p id="score1"></p>
           <br>
-          <h3>Player 2:</h3>
+          <h3 style="color: blue">Player 2:</h3>
           <p id="score2"></p>
         </div>
 
@@ -29,27 +32,62 @@
       <div class="col-md-6">
         <div class="well">
             <div class="showPlayerOne">
-              <h2>Player 1</h2>
+              <h2 style="color: red">Player 1</h2>
             <p id="score"></p>
-            <button type="submit" name="button" class="playerOneBank">BANK!</button>
+            <button type="submit" name="button" class="playerOneBank" style="background-color: red">BANK!</button>
           </div>
           <div class="showPlayerTwo">
-            <h2>Player 2</h2>
+            <h2 style="color: blue">Player 2</h2>
             <p id="score"></p>
-            <button type="submit" name="button" class="playerTwoBank">BANK!</button>
+            <button type="submit" name="button" class="playerTwoBank" style="background-color: blue">BANK!</button>
           </div>
             <br>
 
             <div class="showPlayerOne">
-            <button type="submit" name="button" class="rollButton">ROLL!</button>
+            <button type="submit" name="button" class="rollButton">ROLL</button>
           </div>
             <div class="showPlayerTwo">
-            <button type="submit" name="button" class="rollButton2">ROLL!</button>
+            <button type="submit" name="button" class="rollButton2">ROLL</button>
           </div>
           <h4>Total for this turn:</h4>
   <p id="dice"></p>
         <h4>Current Roll:</h4>
   <p id="roll"></p>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="picOne">
+          <img src="img/die-1.gif" alt="">
+        </div>
+        <div class="picTwo">
+          <img src="img/die-2.gif" alt="">
+        </div>
+        <div class="picThree">
+          <img src="img/die-3.gif" alt="">
+        </div>
+        <div class="picFour">
+          <img src="img/die-4.gif" alt="">
+        </div>
+        <div class="picFive">
+          <img src="img/die-5.gif" alt="">
+        </div>
+          <div class="picSix">
+            <img src="img/die-6.gif" alt="">
+          </div>
+          <div class="POne">
+            <img src="img/player1.jpg" alt="">
+          </div>
+          <div class="PTwo">
+            <img src="img/player2.png" alt="">
+          </div>
+
+
+          </div>
+
         </div>
 
       </div>
