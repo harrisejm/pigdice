@@ -6,6 +6,7 @@ var score2 = 0;
 var player1;
 var player2;
 var roll;
+var test = "";
 var Players = function(name, roll) {
   this.name = name;
   this.roll = roll;
@@ -16,6 +17,7 @@ var Players = function(name, roll) {
     rollTotal2 += this.roll;
   }
 }
+
  $(document).ready(function(){
 ///
 
@@ -23,7 +25,6 @@ var Players = function(name, roll) {
 
 ///
 $(".start").click(function(event){
-
 
 $(".showPlayerOne").show();
 $(".start").hide();
@@ -33,13 +34,12 @@ score = 0;
 score2 = 0;
 document.getElementById("score1").innerHTML = 0;
 document.getElementById("score2").innerHTML = 0;
-});
+
 
 //player 1
-var aiTurn = 0;
 
 var test = setInterval(aiPlayer, 1000);
-
+var aiTurn = 0;
 
 function aiPlayer() {
 
@@ -47,14 +47,18 @@ roll = Math.floor(Math.random() * 6 +1)
 player1 = new Players("Eddie", roll);
 player1.round()
 
+
+
 if (aiTurn < 2) {
    aiTurn += 1;
+
 } else {
-  $(".picOne").show();
+//  $(".picOne").show();
   document.getElementById("roll").innerHTML = 0;
+  aiTurn = 0;
   clearInterval(test);
   aiBank()
-  aiTurn = 0;
+
 }
 
 $(".picOne").hide();
@@ -71,7 +75,7 @@ if (roll === 1) {
   $(".picOne").show();
   clearInterval(test);
   rollTotal = 0;
-
+aiTurn = 0;
   $(".showPlayerTwo").show();
   $(".showPlayerOne").hide();
    document.getElementById("dice").innerHTML = 0;
@@ -104,6 +108,7 @@ function aiBank() {
 
 score = score + rollTotal;
 rollTotal = 0;
+aiTurn = 0;
 
 $(".picOne").hide();
 $(".picTwo").hide();
@@ -118,10 +123,21 @@ $(".showPlayerTwo").show();
 $(".showPlayerOne").hide();
 
 if (score >= 100) {
+clearInterval(test);
+
   $(".POne").show();
   $(".showPlayerTwo").hide();
   $(".showPlayerOne").hide();
   $(".start").show();
+
+  $(".picOne").hide();
+  $(".picTwo").hide();
+  $(".picThree").hide();
+  $(".picFour").hide();
+  $(".picFive").hide();
+  $(".picSix").hide();
+
+
 }
 }
 
@@ -176,6 +192,7 @@ else if (roll === 6){
 $(".playerTwoBank").click(function(event){
 score2 = score2 + rollTotal2;
 rollTotal2 = 0;
+
 test = setInterval(aiPlayer, 1000);
 $(".picOne").hide();
 $(".picTwo").hide();
@@ -190,13 +207,21 @@ $(".showPlayerOne").show();
 $(".showPlayerTwo").hide();
 
 if (score2 >= 100) {
+  clearInterval(test);
   $(".PTwo").show();
   $(".showPlayerTwo").hide();
   $(".showPlayerOne").hide();
   $(".start").show();
+
+  $(".picOne").hide();
+  $(".picTwo").hide();
+  $(".picThree").hide();
+  $(".picFour").hide();
+  $(".picFive").hide();
+  $(".picSix").hide();
 }
 });
 
-
+});
 
  });
